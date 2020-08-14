@@ -1,9 +1,10 @@
 package com.example.myapplication
 
+import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
 
 class MainViewModel {
-    val elements = PublishSubject.create<List<ViewHolderDataProvider>>()
+    val elements = BehaviorSubject.create<List<ViewHolderDataProvider>>()
 
     init {
         elements.onNext(
@@ -15,7 +16,8 @@ class MainViewModel {
 
     class TwoImagesDataProvider(override val textResId: Int) : ViewHolderDataProvider,
         TextProvider {
-        override val identifier = 200
+        override val identifier
+            get() = 200
         override val identity = textResId
         override val hash = 0
     }

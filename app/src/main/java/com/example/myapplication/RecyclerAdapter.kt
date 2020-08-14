@@ -74,7 +74,7 @@ class RecyclerAdapter : RecyclerView.Adapter<DataViewHolder>() {
     }
 
     override fun getItemViewType(position: Int): Int {
-        return factories[position].identifier
+        return differ.currentList[position].identifier
     }
 
     override fun onViewAttachedToWindow(holder: DataViewHolder) {

@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         disposables.add(
             viewModel.elements
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { adapter.dataProviders() }
+                .subscribe { adapter.reload(it)}
         )
     }
 }
